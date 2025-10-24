@@ -1,5 +1,8 @@
 # waldo (development version)
 
+* `compare()` now works with complex values that do not have a `Re()` method
+  (initially found with a uuid value) (@billdenney, #227)
+
 # waldo 0.6.2
 
 * `compare()` now goes into more details if you're comparing an S3 object with 

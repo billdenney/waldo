@@ -153,7 +153,9 @@ compare_complex <- function(
   tolerance = default_tol(),
   max_diffs = Inf
 ) {
-  if (length(x) == length(y)) {
+  # Verify that Re() and Im() will work
+  re_works <- !inherits(try(Re(x), silent = TRUE), "try-error")
+  if ((length(x) == length(y)) && re_works) {
     c(
       compare_numeric(
         Re(x),

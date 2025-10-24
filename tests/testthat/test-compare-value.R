@@ -197,6 +197,14 @@ test_that("can compare complex numbers", {
   })
 })
 
+test_that("can compare complex numbers in structures that do not have Re() methods (#227)", {
+  skip_if_not_installed(pkg = "uuid")
+  requireNamespace("uuid")
+  expect_snapshot({
+    compare(structure(1 + 1i, class = "UUID"), structure(2 + 1i, class = "UUID"))
+  })
+})
+
 test_that("logical comparisons minimise extraneous diffs", {
   x1 <- x2 <- rep(TRUE, 50)
   x2[c(1, 25, 50)] <- FALSE

@@ -377,6 +377,14 @@
       `Im(old)`: 1.0 1.0
       `Im(new)`: 2.0 2.0
 
+# can compare complex numbers in structures that do not have Re() methods (#227)
+
+    Code
+      compare(structure(1 + 0+1i, class = "UUID"), structure(2 + 0+1i, class = "UUID"))
+    Output
+      `old`: 1+1i
+      `new`: 2+1i
+
 # logical comparisons minimise extraneous diffs
 
     Code
