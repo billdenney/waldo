@@ -198,10 +198,9 @@ test_that("can compare complex numbers", {
 })
 
 test_that("can compare complex numbers in structures that do not have Re() methods (#227)", {
-  skip_if_not_installed(pkg = "uuid")
-  requireNamespace("uuid")
+  Complex.foo <- function(z) stop(.Generic, " is not supported on foos")
   expect_snapshot({
-    compare(structure(1 + 1i, class = "UUID"), structure(2 + 1i, class = "UUID"))
+    compare(structure(1 + 1i, class = "foo"), structure(2 + 1i, class = "foo"))
   })
 })
 
